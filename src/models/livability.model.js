@@ -10,10 +10,12 @@ const saveLivabilityData = async (data) => {
         aq_no,
         noise,
         lvb_temp,
-        lvb_humidity
+        lvb_humidity,
+        latitude,
+        longitude
     } = data;
 
-    const query = `CALL sp_saveLivabilityData(?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+    const query = `CALL sp_saveLivabilityData(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
     const values = [
         real_estate_id,
         date_time,
@@ -23,7 +25,9 @@ const saveLivabilityData = async (data) => {
         aq_no,
         noise,
         lvb_temp,
-        lvb_humidity
+        lvb_humidity,
+        latitude,
+        longitude
     ];
 
     const [rows] = await pool.execute(query, values);
