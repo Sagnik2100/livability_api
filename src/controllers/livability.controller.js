@@ -37,6 +37,26 @@ const saveLivabilityData = async (req, res, next) => {
     }
 };
 
+const getLivabilityData = async (req, res, next) => {
+    try {
+        const { real_estate_id } = req.query;
+
+        if (!real_estate_id) {
+            return res.status(400).json({ success: false, message: 'real_estate_id is required' });
+        }
+
+        const data = await livabilityService.getLivabilityData(parseInt(real_estate_id));
+
+        res.status(200).json({
+            success: true,
+            data: data
+        });
+    } catch (error) {
+        next(error);
+    }
+};
+
 module.exports = {
-    saveLivabilityData
+    saveLivabilityData,
+    getLivabilityData
 };
