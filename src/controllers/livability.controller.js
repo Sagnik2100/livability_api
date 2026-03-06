@@ -13,7 +13,9 @@ const saveLivabilityData = async (req, res, next) => {
             lvb_temp,
             lvb_humidity,
             latitude,
-            longitude
+            longitude,
+            co,
+            o3
         } = req.query;
 
         // Transform incoming data string queries properly before saving
@@ -28,7 +30,9 @@ const saveLivabilityData = async (req, res, next) => {
             lvb_temp: parseFloat(lvb_temp) || 0,
             lvb_humidity: parseFloat(lvb_humidity) || 0,
             latitude: parseFloat(latitude) || 0,
-            longitude: parseFloat(longitude) || 0
+            longitude: parseFloat(longitude) || 0,
+            co: parseFloat(co) || 0,
+            o3: parseFloat(o3) || 0
         });
 
         res.status(200).json({ success: true, message: 'Livability data saved successfully' });
