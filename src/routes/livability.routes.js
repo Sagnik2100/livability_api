@@ -9,4 +9,7 @@ router.get('/save', livabilityController.saveLivabilityData);
 // GET request to fetch livability data
 router.get('/', livabilityController.getLivabilityData);
 
+// GET request to fetch recent 50 livability data
+router.get('/recent50', livabilityController.getRecent50LivibilityData);
+
 module.exports = router;

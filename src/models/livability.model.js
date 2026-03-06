@@ -44,7 +44,15 @@ const getLivabilityData = async (realEstateId) => {
     return rows[0]; // SP returns an array of results, we want the first result set
 };
 
+const getRecent50LivibilityData = async (realEstateId) => {
+    const query = `CALL sp_getRecent50LivibilityData(?)`;
+    const [rows] = await pool.execute(query, [realEstateId]);
+    return rows[0]; // SP returns an array of results, we want the first result set
+};
+
+
 module.exports = {
     saveLivabilityData,
-    getLivabilityData
+    getLivabilityData,
+    getRecent50LivibilityData
 };

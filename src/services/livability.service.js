@@ -8,7 +8,12 @@ const getLivabilityData = async (realEstateId) => {
     return await livabilityModel.getLivabilityData(realEstateId);
 };
 
+const getRecent50LivibilityData = async (realEstateId) => {
+    return await livabilityModel.getRecent50LivibilityData(realEstateId);
+};
+
 module.exports = {
     saveLivabilityData,
-    getLivabilityData
+    getLivabilityData,
+    getRecent50LivibilityData
 };
